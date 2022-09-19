@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "agD5zJAreAFGnBZoy3uMfXkZCsQqxGaJCkBlp99Ohco=",
+  "Source": "CampaignApi",
+  "BasePath": "_content/CampaignApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
