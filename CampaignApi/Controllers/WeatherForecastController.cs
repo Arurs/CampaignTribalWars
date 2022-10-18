@@ -29,5 +29,15 @@ namespace CampaignApi.Controllers
             })
             .ToArray();
         }
+        [HttpGet("{id}")]
+        public WeatherForecast GetById(long id)
+        {
+            return new WeatherForecast()
+            {
+                Date = DateTime.Now.AddDays(id),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+                TemperatureC = Random.Shared.Next()
+            };
+        }
     }
 }

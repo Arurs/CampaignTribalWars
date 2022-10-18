@@ -1,0 +1,45 @@
+﻿@page "/schedule"
+@using BlazorServerApp.Data
+@using BlazorServerApp.Service
+<h3>Your Schedule</h3>
+
+@if (_commands == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>MinTime</th>
+                <th>MaxTime</th>
+                <th>Command Type</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var command in _commands)
+            {
+                @*<tr style="background-color:#7F96FF;color:#ffffff;">*@
+                <tr style="background-color:@command.RowColor.Name;">
+                    <td> @command.Id</td>
+                    <td>@command.MinTime</td>
+                    <td>@command.MaxTime</td>
+                    <td>@command.CommandType</td>
+                    <td>@command.Link</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+	private Command[]? _commands;
+	    protected override async Task OnInitializedAsync()
+    {
+        var scheduleService = new ScheduleService();
+        _commands = await scheduleService.GetSampleSchedules();
+    }
+}
